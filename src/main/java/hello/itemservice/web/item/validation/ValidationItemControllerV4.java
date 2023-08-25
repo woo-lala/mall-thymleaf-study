@@ -2,10 +2,8 @@ package hello.itemservice.web.validation;
 
 import hello.itemservice.domain.item.Item;
 import hello.itemservice.domain.item.ItemRepository;
-import hello.itemservice.domain.item.SaveCheck;
-import hello.itemservice.domain.item.UpdateCheck;
-import hello.itemservice.web.validation.form.ItemSaveForm;
-import hello.itemservice.web.validation.form.ItemUpdateForm;
+import hello.itemservice.web.item.form.ItemSaveForm;
+import hello.itemservice.web.item.form.ItemUpdateForm;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
