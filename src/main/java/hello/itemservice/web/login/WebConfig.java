@@ -1,5 +1,10 @@
 package hello.itemservice.web.login;
 
+import hello.itemservice.converter.IntegerToStringConverter;
+import hello.itemservice.converter.IpPortToStringConverter;
+import hello.itemservice.converter.StringToIntegerConverter;
+import hello.itemservice.converter.StringToIpPortConverter;
+import hello.itemservice.formatter.MyNumberFormatter;
 import hello.itemservice.resolver.MyHandlerExceptionResolver;
 import hello.itemservice.resolver.UserHandlerExceptionResolver;
 import hello.itemservice.web.filter.LogFilter;
@@ -7,6 +12,7 @@ import hello.itemservice.web.interceptor.LoginCheckInterceptor;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.format.FormatterRegistry;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -17,6 +23,20 @@ import java.util.List;
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
+
+    @Override
+    public void addFormatters(FormatterRegistry registry) {
+        WebMvcConfigurer.super.addFormatters(registry);
+
+        //주석처리 이유는 컨버터가 우선순위 높기 때문에
+//        registry.addConverter(new StringToIntegerConverter());
+//        registry.addConverter(new IntegerToStringConverter());
+        registry.addConverter(new StringToIpPortConverter());
+        registry.addConverter(new IpPortToStringConverter());
+
+        //formatter 추가
+        registry.addFormatter(new MyNumberFormatter());
+    }
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
