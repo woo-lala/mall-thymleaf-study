@@ -1,6 +1,5 @@
 package hello.itemservice.converter;
 
-import hello.itemservice.domain.IpPort;
 import lombok.Data;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

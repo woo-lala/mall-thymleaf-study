@@ -1,4 +1,4 @@
-package hello.itemservice.domain;
+package hello.itemservice.converter;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

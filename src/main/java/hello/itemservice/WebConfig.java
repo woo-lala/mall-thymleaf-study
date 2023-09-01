@@ -1,4 +1,4 @@
-package hello.itemservice.web.login;
+package hello.itemservice;
 
 import hello.itemservice.converter.IntegerToStringConverter;
 import hello.itemservice.converter.IpPortToStringConverter;
@@ -44,7 +44,7 @@ public class WebConfig implements WebMvcConfigurer {
                 .order(2)
                 .addPathPatterns("/**")
                 .excludePathPatterns("/", "/members/add", "/login", "/logout",
-                        "/css/**", "/*.ico", "/error", "/error-page/**", "/error-ex", "/error-404", "/error-500", "/api/**");
+                        "/css/**", "/*.ico", "/error", "/error-page/**", "/error-ex", "/error-404", "/error-500", "/api/**", "/files/**");
 
     }
 
